@@ -1,7 +1,12 @@
 ﻿using Practicacs.Ejercicio01_Veterinaria;
+using Practicacs.Ejericio02_Gimnasio;
+using Practicacs.Ejercicio03_Estacionamiento;
+
 
 
 Console.WriteLine("1. Veterinaria");
+Console.WriteLine("2. Gimnasio");
+Console.WriteLine("3. Estacionamiento");
 Console.WriteLine("Que Ejercicio queres probar?: ");
 int op = Convert.ToInt32(Console.ReadLine());
 switch (op)
@@ -9,8 +14,13 @@ switch (op)
         case 1:
         Ejercicio01_Veterinaria();
         break;
+        case 2:
+        Ejericio02_Gimnasio();
+        break;
+        case 3:
+        Ejercicio03_Estacionamiento();
+        break;
 }
-
 
 
 static void Ejercicio01_Veterinaria()
@@ -28,3 +38,43 @@ static void Ejercicio01_Veterinaria()
     sistv.BuscarNombre("Tobi");
     sistv.ListarActivos();
  }
+
+static void Ejericio02_Gimnasio()
+{
+    Socio s1 = new Socio("Bautista", 20202);
+    Socio s2 = new Socio("Dario", 2313);
+    Socio s3 = new Socio("Micho", 101010);
+
+    Gimnasio g1 = new Gimnasio("Luka", 3);
+    SistemaGym sgym = new SistemaGym();
+
+    sgym.AgregarSocio(s1, g1);
+    sgym.AgregarSocio(s2, g1);
+    sgym.AgregarSocio(s3, g1);
+    sgym.AgregarSocio(s3, g1);
+
+    sgym.DarBaja(s2, g1);
+    sgym.CanDia(g1);
+    sgym.MarcarCuota(s3, "Vencida");
+    sgym.CanDia(g1);
+}
+static void Ejercicio03_Estacionamiento()
+{
+    Vehiculo veh1 = new Vehiculo("Dario", "AB343JP");
+    Vehiculo veh2 = new Vehiculo("Bautista", "AA000ZZ");
+    Vehiculo veh3 = new Vehiculo("Luca", "AB002AA");
+    Estacionamiento est1 = new Estacionamiento("LOTUS", 3);
+
+    Sistestacion sistest = new Sistestacion();
+
+    sistest.IngresoVeh(veh1, est1);
+    sistest.IngresoVeh(veh2, est1);
+    sistest.IngresoVeh(veh3, est1);
+
+    sistest.CuentaEstacionados(est1);
+    sistest.EgresoVeh(veh2, est1);
+    sistest.BuscarVeh(est1, "AB343JP");
+    sistest.BuscarVeh(est1, "AA000ZZ");
+    sistest.CuentaEstacionados(est1);
+}
+
