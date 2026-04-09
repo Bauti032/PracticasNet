@@ -1,5 +1,4 @@
 namespace Practicacs.Ejercicio04;
-
 public class SisTienda
 {
     public List<Instrumento> Inventario { get; set; }

@@ -25,6 +25,9 @@ switch (op)
         case 4:
         Ejercicio04_Musica();
         break;
+        default:
+        Console.WriteLine("Opcion no valida. Ponelo bien, gil de goma.");
+        break;
 }
 
 
