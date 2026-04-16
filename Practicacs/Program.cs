@@ -1,12 +1,14 @@
 ﻿using Practicacs.Ejercicio01_Veterinaria;
 using Practicacs.Ejericio02_Gimnasio;
 using Practicacs.Ejercicio03_Estacionamiento;
+using Practicacs.Ejercicio04;
 
 
 
 Console.WriteLine("1. Veterinaria");
 Console.WriteLine("2. Gimnasio");
 Console.WriteLine("3. Estacionamiento");
+Console.WriteLine("4. Musica");
 Console.WriteLine("Que Ejercicio queres probar?: ");
 int op = Convert.ToInt32(Console.ReadLine());
 switch (op)
@@ -20,6 +22,12 @@ switch (op)
         case 3:
         Ejercicio03_Estacionamiento();
         break;
+        case 4:
+        Ejercicio04_Musica();
+        break;
+        default:
+        Console.WriteLine("Opcion no valida. Ponelo bien, gil de goma.");
+        break;
 }
 
 
@@ -28,6 +36,7 @@ static void Ejercicio01_Veterinaria()
     Animal an1 = new Animal("Tobi", "Perro", 10);
     Animal an2 = new Animal("Rex", "Loro", 2);
     Animal an3 = new Animal("Tobi", "Gato", 10);
+    
 
     SistemaVet sistv = new SistemaVet();
 
@@ -77,4 +86,24 @@ static void Ejercicio03_Estacionamiento()
     sistest.BuscarVeh(est1, "AA000ZZ");
     sistest.CuentaEstacionados(est1);
 }
+static void Ejercicio04_Musica()
+{
+    Instrumento i1 = new Instrumento("Guitarra", "Cuerda", 1500);
+    Instrumento i2 = new Instrumento("Bateria", "Percusion", 3000);
+    Instrumento i3 = new Instrumento("Piano", "Teclado", 5000);
 
+    SisTienda tienda = new SisTienda();
+
+    tienda.AgregarInstrumento(i1);
+    tienda.AgregarInstrumento(i2);
+    tienda.AgregarInstrumento(i3);
+
+    Console.WriteLine("Instrumentos de categoria 'Cuerda':");
+    var cuerda = tienda.BuscarPorCategoria("Cuerda");
+    foreach (var instrumento in cuerda)
+    {
+        Console.WriteLine($"Nombre: {instrumento.Nombre} | Precio: {instrumento.Precio}");
+    }
+
+    Console.WriteLine($"Valor total del inventario: {tienda.CalcularValorTotalInventario()}");
+}

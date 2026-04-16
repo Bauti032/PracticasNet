@@ -13,6 +13,5 @@ public class Animal
         Especie = especie;
         Edad = edad;
         Activo = false;
-
     }
 }
